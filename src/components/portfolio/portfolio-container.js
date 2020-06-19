@@ -8,6 +8,7 @@ export default class PortfolioComponent extends Component {
 
     this.state = {
       pageTitle: "Welcome to my portfolio",
+      isLoading: false,
       data: [
         { title: "quip", catagory: "eCommerce" },
         { title: "Evenbrite", catagory: "Scheduling"}, 
@@ -30,6 +31,7 @@ export default class PortfolioComponent extends Component {
 
   portfolioItems() {
     return this.state.data.map(item => {
+
       return <PortfolioItem title={item.title}/>;
     });
   }
