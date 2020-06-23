@@ -1,4 +1,7 @@
-import React, {component, Component} from 'react'
+import React, { Component} from 'react';
+import { NavLink } from 'react-router-dom';
+
+
 export default class NavagationComponent extends Component {
     constructor() {
         super();
@@ -7,8 +10,15 @@ export default class NavagationComponent extends Component {
     render() {
         return (
             <div>
-            <button>Home</button>
-            <button>About</button>
+            <NavLink exact to="/">
+                home
+            </NavLink>
+            <NavLink to="/about-me">
+                about
+            </NavLink>
+            <a href="/">Wrong Home</a>
+
+
             <button>Contact</button>
             <button>Blog</button>
            {true ? <button>Add Blog</button>  : null }
