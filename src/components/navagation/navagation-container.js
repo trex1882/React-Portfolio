@@ -11,16 +11,17 @@ export default class NavagationComponent extends Component {
         return (
             <div>
             <NavLink exact to="/">
-                home
+                Home
             </NavLink>
             <NavLink to="/about-me">
-                about
+                About
             </NavLink>
-            <a href="/">Wrong Home</a>
-
-
-            <button>Contact</button>
-            <button>Blog</button>
+            <NavLink to="/Contact">
+                Contact
+            </NavLink>
+            <NavLink to="/Blog">
+                Blog
+            </NavLink>
            {true ? <button>Add Blog</button>  : null }
             </div>
         )
