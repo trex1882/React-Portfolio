@@ -10,10 +10,10 @@ export default class PortfolioComponent extends Component {
       pageTitle: "Welcome to my portfolio",
       isLoading: false,
       data: [
-        { title: "quip", catagory: "eCommerce" },
-        { title: "Evenbrite", catagory: "Scheduling"}, 
-        { title: "Ministry Safe", catagory: "Enterprise"},
-        { title: "Swingway", catagory: "eCommerce"}
+        { title: "quip", catagory: "eCommerce", slug: "quip" },
+        { title: "Evenbrite", catagory: "Scheduling", slug: "Eventbrite"}, 
+        { title: "Ministry Safe", catagory: "Enterprise", slug: "Ministry Save"},
+        { title: "Swingway", catagory: "eCommerce", slug: "Swingway"}
       ]
     };
 
