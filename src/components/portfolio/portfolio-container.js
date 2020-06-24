@@ -7,7 +7,7 @@ export default class PortfolioComponent extends Component {
     super();
 
     this.state = {
-      pageTitle: "Welcome to my portfolio",
+      pageTitle: "",
       isLoading: false,
       data: [
         { title: "quip", catagory: "eCommerce", slug: "quip" },
