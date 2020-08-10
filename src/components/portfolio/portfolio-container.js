@@ -38,8 +38,13 @@ getPortfolioItems() {
 }
 
   portfolioItems() {
+    //Data that we will need:
+    // -Background image: thumb_image_url
+    //-logo
+    //- description: description
+    // - id: id
     return this.state.data.map(item => {
-      return <PortfolioItem title={item.name} url={item.url} slug={item.id}/>;
+      return <PortfolioItem key={item.id} title={item.name} url={item.url} slug={item.id}/>;
     });
   }
 
