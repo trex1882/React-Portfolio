@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import axios from "axios";
-import Blog from "./blog";
 
 export default class BlogDetail extends Component {
   constructor(props) {
@@ -41,14 +40,15 @@ export default class BlogDetail extends Component {
 
     return (
       <div className="blog-container">
-        <div className="content-container"></div>
-        <h1>{title}</h1>
+        <div className="content-container">
+          <h1>{title}</h1>
 
-        <div className="featured-image-wrapper">
-          <img src={featured_image_url} />
+          <div className="featured-image-wrapper">
+            <img src={featured_image_url} />
+          </div>
+
+          <div className="content">{content}</div>
         </div>
-
-        <div className="content">{content}</div>
       </div>
     );
   }

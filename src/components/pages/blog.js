@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
-import blogItem from "../blog/blog-item";
 import BlogItem from "../blog/blog-item";
 
 class Blog extends Component {
@@ -13,6 +12,11 @@ class Blog extends Component {
     };
 
     this.getBlogItems = this.getBlogItems.bind(this);
+    this.activateInfiniteScroll();
+  }
+
+  activateInfiniteScroll() {
+    window.onscroll = () => {};
   }
 
   getBlogItems() {
@@ -40,7 +44,7 @@ class Blog extends Component {
     });
 
     return (
-      <div className="blog-cantainer">
+      <div className="blog-container">
         <div className="content-container">{blogRecords}</div>
       </div>
     );
