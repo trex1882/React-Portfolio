@@ -62,6 +62,12 @@ class Blog extends Component {
     return (
       <div className="blog-container">
         <div className="content-container">{blogRecords}</div>
+
+        {this.state.isLoading ? (
+          <div className="content-loader">
+            <FontAwesomeIcon icon="spinner" spin />
+          </div>
+        ) : null}
       </div>
     );
   }
