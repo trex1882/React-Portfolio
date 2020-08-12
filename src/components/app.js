@@ -7,6 +7,7 @@ import {
   faTrash,
   faSignOutAlt,
   faEdit,
+  faSpinner
 } from "@fortawesome/free-solid-svg-icons";
 
 import NavigationContainer from "./navigation/navigation-container";
