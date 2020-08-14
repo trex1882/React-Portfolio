@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import axios from "axios";
 import BlogItem from "../blog/blog-item";
-import BlogModal from "../models/blog-modal";
+import BlogModal from "../models/blog-model";
 
 class Blog extends Component {
   constructor() {
