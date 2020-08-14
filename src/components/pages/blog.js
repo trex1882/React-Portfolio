@@ -4,7 +4,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import axios from "axios";
 import BlogItem from "../blog/blog-item";
 import BlogModal from "../modals/blog-modal";
-import { relativeTimeThreshold } from "moment";
 
 class Blog extends Component {
   constructor() {
@@ -23,12 +22,12 @@ class Blog extends Component {
     window.addEventListener("scroll", this.onScroll, false);
     this.handleNewBlogClick = this.handleNewBlogClick.bind(this);
     this.handleModalClose = this.handleModalClose.bind(this);
-    this.handleSuccessfullNewBlogSubmision = this.handleSuccessfullNewBlogSubmision.bind(
+    this.handleSuccessfulNewBlogSubmission = this.handleSuccessfulNewBlogSubmission.bind(
       this
     );
   }
 
-  handleSuccessfullNewBlogSubmision(blog) {
+  handleSuccessfulNewBlogSubmission(blog) {
     this.setState({
       blogModalIsOpen: false,
       blogItems: [blog].concat(this.state.blogItems),
@@ -104,16 +103,20 @@ class Blog extends Component {
     return (
       <div className="blog-container">
         <BlogModal
-          handleSuccessfullNewBlogSubmision={
-            this.handleSuccessfullNewBlogSubmision
+          handleSuccessfulNewBlogSubmission={
+            this.handleSuccessfulNewBlogSubmission
           }
           handleModalClose={this.handleModalClose}
           modalIsOpen={this.state.blogModalIsOpen}
         />
 
-        <div className="new-blog-link">
-          <a onClick={this.handleNewBlogClick}>Open Modal!</a>
-        </div>
+        {this.props.loggedInStatus === "LOGGED_IN" ? (
+          <div className="new-blog-link">
+            <a onClick={this.handleNewBlogClick}>
+              <FontAwesomeIcon icon="plus-circle" />
+            </a>
+          </div>
+        ) : null}
 
         <div className="content-container">{blogRecords}</div>
 
