@@ -20,7 +20,7 @@ export default class PortfolioForm extends Component {
       logo: "",
       editMode: false,
       apiUrl: "https://jordan.devcamp.space/portfolio/portfolio_items",
-      apiAction: "post"
+      apiAction: "post",
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -40,16 +40,15 @@ export default class PortfolioForm extends Component {
   deleteImage(imageType) {
     axios
       .delete(
-        `https://api.devcamp.space/portfolio/delete-portfolio-image/${this.state
-          .id}?image_type=${imageType}`,
+        `https://api.devcamp.space/portfolio/delete-portfolio-image/${this.state.id}?image_type=${imageType}`,
         { withCredentials: true }
       )
-      .then(response => {
+      .then((response) => {
         this.setState({
-          [`${imageType}_url`]: ""
+          [`${imageType}_url`]: "",
         });
       })
-      .catch(error => {
+      .catch((error) => {
         console.log("deleteImage error", error);
       });
   }
@@ -65,7 +64,7 @@ export default class PortfolioForm extends Component {
         url,
         thumb_image_url,
         banner_image_url,
-        logo_url
+        logo_url,
       } = this.props.portfolioToEdit;
 
       this.props.clearPortfolioToEdit();
@@ -82,26 +81,26 @@ export default class PortfolioForm extends Component {
         apiAction: "patch",
         thumb_image_url: thumb_image_url || "",
         banner_image_url: banner_image_url || "",
-        logo_url: logo_url || ""
+        logo_url: logo_url || "",
       });
     }
   }
 
   handleThumbDrop() {
     return {
-      addedfile: file => this.setState({ thumb_image: file })
+      addedfile: (file) => this.setState({ thumb_image: file }),
     };
   }
 
   handleBannerDrop() {
     return {
-      addedfile: file => this.setState({ banner_image: file })
+      addedfile: (file) => this.setState({ banner_image: file }),
     };
   }
 
   handleLogoDrop() {
     return {
-      addedfile: file => this.setState({ logo: file })
+      addedfile: (file) => this.setState({ logo: file }),
     };
   }
 
@@ -109,14 +108,14 @@ export default class PortfolioForm extends Component {
     return {
       iconFiletypes: [".jpg", ".png"],
       showFiletypeIcon: true,
-      postUrl: "https://httpbin.org/post"
+      postUrl: "https://httpbin.org/post",
     };
   }
 
   djsConfig() {
     return {
       addRemoveLinks: true,
-      maxFiles: 1
+      maxFiles: 1,
     };
   }
 
@@ -146,7 +145,7 @@ export default class PortfolioForm extends Component {
 
   handleChange(event) {
     this.setState({
-      [event.target.name]: event.target.value
+      [event.target.name]: event.target.value,
     });
   }
 
@@ -155,9 +154,9 @@ export default class PortfolioForm extends Component {
       method: this.state.apiAction,
       url: this.state.apiUrl,
       data: this.buildForm(),
-      withCredentials: true
+      withCredentials: true,
     })
-      .then(response => {
+      .then((response) => {
         if (this.state.editMode) {
           this.props.handleEditFormSubmission();
         } else {
@@ -175,14 +174,14 @@ export default class PortfolioForm extends Component {
           logo: "",
           editMode: false,
           apiUrl: "https://jordan.devcamp.space/portfolio/portfolio_items",
-          apiAction: "post"
+          apiAction: "post",
         });
 
-        [this.thumbRef, this.bannerRef, this.logoRef].forEach(ref => {
+        [this.thumbRef, this.bannerRef, this.logoRef].forEach((ref) => {
           ref.current.dropzone.removeAllFiles();
         });
       })
-      .catch(error => {
+      .catch((error) => {
         console.log("portfolio form handleSubmit error", error);
       });
 
